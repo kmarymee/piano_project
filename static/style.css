@@ -1,0 +1,181 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-image: url("img/wood_hd.png");
+}
+
+main {
+    width: 1200px;
+    height: 1200px;
+    /* background-color: rgb(172, 131, 44); */
+    margin: 0px auto;
+}
+
+header {
+    width: 1200px;
+    height: 100px;
+
+    box-shadow: 0px 0px 15px 5px inset rgb(54, 54, 54);
+    border-radius: 15px;
+
+    background: #000000;
+    background: -moz-linear-gradient(-45deg, #000000 0%, #535353 50%, #000000 100%);
+    background: -webkit-linear-gradient(-45deg, #000000 0%, #535353 50%, #000000 100%);
+    background: linear-gradient(135deg, #000000 0%, #535353 50%, #000000 100%);
+
+}
+
+h1 {
+    
+    display: inline-block;
+    color:white;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    margin-left: 30px;
+    margin-top: 25px;
+
+}
+
+h2 {
+    
+    /* display: inline-block; */
+    color:white;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    margin-left: 100px;
+    /* margin-top: 23px; */
+    font-size: 12pt;
+    font-style: italic;
+}
+
+.overlap_test{
+    display: inline-block;
+    font-size: 24pt;
+}
+
+#ol2 {
+    margin-left: -100px;
+    font-size: 10pt;
+}
+
+#ol3 {
+    margin-left: 100px;
+}
+
+#piano_master {
+    display: inline-block;
+    width: 1050px;
+    height: 250px;
+
+    box-shadow: 0px 0px 15px 5px inset rgb(54, 54, 54);
+    border-radius: 15px;
+
+    margin-top: 50px;
+    margin-left: 75px;
+
+    background: #000000;
+    background: -moz-linear-gradient(-45deg, #000000 0%, #535353 50%, #000000 100%);
+    background: -webkit-linear-gradient(-45deg, #000000 0%, #535353 50%, #000000 100%);
+    background: linear-gradient(135deg, #000000 0%, #535353 50%, #000000 100%);
+
+}
+
+
+#white_keys {
+    display:inline-block;
+    width: 988px; 
+    height: 115px;
+    background-color: white;
+    margin-left: 31px;
+    margin-top: 50px;
+    padding-left: 0px;
+}
+
+/* 52 white keys, 36 black keys  */
+.white_key {
+    width: 19px;
+    height: 115px;
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+#black_keys {
+    display:inline-block;
+    width: 988px; 
+    height: 5px;
+    /* background-color: white; */
+    margin-left: 31px;
+    margin-top: 0px;
+    /* padding-left: 4px; */
+}
+
+#black_first {
+    width: 9px;
+    height: 79px;
+    margin-top: -117px;
+    margin-left: 14px;
+    background-color: black;
+    vertical-align: top;
+}
+
+#sustain_button {
+    display: inline-block;
+    margin-left: 150px;
+    margin-top: 25px;
+}
+
+.black_C {
+    width: 9px;
+    height: 79px;
+    margin-top: -117px;
+    margin-left: 25px;
+    background-color: black;
+    vertical-align: top;
+}
+
+.black_D {
+    width: 9px;
+    height: 79px;
+    margin-top: -117px;
+    margin-left: 8px;
+    background-color: black;
+    vertical-align: top;
+}
+
+.black_D {
+    width: 9px;
+    height: 79px;
+    margin-top: -117px;
+    margin-left: 8px;
+    background-color: black;
+    vertical-align: top;
+}
+
+.black_F {
+    width: 9px;
+    height: 79px;
+    margin-top: -117px;
+    margin-left: 23px;
+    background-color: black;
+    vertical-align: top;
+}
+
+.black_G {
+    width: 9px;
+    height: 79px;
+    margin-top: -117px;
+    margin-left: 6px;
+    background-color: black;
+    vertical-align: top;
+}
+
+.black_A {
+    width: 9px;
+    height: 79px;
+    margin-top: -117px;
+    margin-left: 6px;
+    background-color: black;
+    vertical-align: top;
+}
+

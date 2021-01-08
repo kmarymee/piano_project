@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <title>Kyle's Piano App</title>
+
+        <script>
+            $(document).ready(function() {
+                // alert("Script Loaded.")
+
+                var sustain = false
+                $("#sustain_button").click(function(){
+                    if(sustain){
+                        $("#sustain_button").text("Sustain: OFF")
+                        sustain = false
+                        for(var i=0; i<88; i++){
+                            $(`#key${i}`).trigger('pause')
+                            $(`#key${i}`).prop("currentTime",0);
+                        }
+                    } else {
+                        $("#sustain_button").text("Sustain: ON")
+                        sustain = true
+                    }
+                })
+
+                //Generate sound items
+                //for(var i=0; i<88; i++){
+                    
+                    
+
+                        
+                //}
+
+                {% for i in range(0,88) %}
+                    $("#piano_master").append(`<audio id="key{{i}}"><source src="{{ url_for('static', filename='snd/key'+ i|string +'.wav')}}" type="audio/wav"></audio>`)
+                {% endfor %}
+
+
+
+
+                $(document).on("mousedown", "button[pno_key]", function(){
+                    var id = $(this).attr('pno_key')
+                    $(`#key${id}`).trigger('pause')
+                    $(`#key${id}`).prop("currentTime",0);
+                    $(`#key${id}`).trigger('play')
+                })
+
+                
+                $(document).on("mouseup", "button[pno_key]", function(){
+                    var id = $(this).attr('pno_key')
+                    if(!sustain){
+                        $(`#key${id}`).trigger('pause')
+                        $(`#key${id}`).prop("currentTime",0);
+                    }
+                })
+
+                
+                $(document).on("mouseout", "button[pno_key]", function(){
+                    var id = $(this).attr('pno_key')
+                    if(!sustain){
+                        $(`#key${id}`).trigger('pause')
+                        $(`#key${id}`).prop("currentTime",0);
+                    }
+                })
+
+
+
+
+
+
+
+
+                //Generate WhiteKeys
+                function IsBlackKey(id){
+                    var black_key_ids = [1,4,6,9,11,13,16,18,21,23,25,28,30,33,35,37,40,42,45,47,49,52,54,57,59,61,64,66,69,71,73,76,78,81,83,85];
+                    for(var i=0;i<black_key_ids.length;i++){
+                        if(id == black_key_ids[i]){
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+                // originally 52
+                for(var i=0; i<88; i++){
+                    if(!IsBlackKey(i)){
+                        $("#white_keys").append(`<button class='white_key' pno_key=${i}></button>`)
+                    }
+                }
+
+
+
+
+            })
+        </script>
+
+    </head>
+    <body>
+        <main>
+
+            <div id="piano_master">
+                <h1>Piano App</h1>
+                <h2>By Kyle Marymee</h2>
+                <div id="white_keys">
+
+
+                </div>
+                <div id="black_keys">
+                    <button id="black_first" pno_key=1></button>
+
+                    <button class="black_C" pno_key=4></button>
+                    <button class="black_D" pno_key=6></button>
+                    <button class="black_F" pno_key=9></button>
+                    <button class="black_G" pno_key=11></button>
+                    <button class="black_A" pno_key=13></button>
+                    
+                    <button class="black_C" pno_key=16></button>
+                    <button class="black_D" pno_key=18></button>
+                    <button class="black_F" pno_key=21></button>
+                    <button class="black_G" pno_key=23></button>
+                    <button class="black_A" pno_key=25></button>
+                    
+                    <button class="black_C" pno_key=28></button>
+                    <button class="black_D" pno_key=30></button>
+                    <button class="black_F" pno_key=33></button>
+                    <button class="black_G" pno_key=35></button>
+                    <button class="black_A" pno_key=37></button>
+                    
+                    <button class="black_C" pno_key=40></button>
+                    <button class="black_D" pno_key=42></button>
+                    <button class="black_F" pno_key=45></button>
+                    <button class="black_G" pno_key=47></button>
+                    <button class="black_A" pno_key=49></button>
+                    
+                    <button class="black_C" pno_key=52></button>
+                    <button class="black_D" pno_key=54></button>
+                    <button class="black_F" pno_key=57></button>
+                    <button class="black_G" pno_key=59></button>
+                    <button class="black_A" pno_key=61></button>
+                    
+                    <button class="black_C" pno_key=64></button>
+                    <button class="black_D" pno_key=66></button>
+                    <button class="black_F" pno_key=69></button>
+                    <button class="black_G" pno_key=71></button>
+                    <button class="black_A" pno_key=73></button>
+                    
+                    <button class="black_C" pno_key=76></button>
+                    <button class="black_D" pno_key=78></button>
+                    <button class="black_F" pno_key=81></button>
+                    <button class="black_G" pno_key=83></button>
+                    <button class="black_A" pno_key=85></button>
+                    
+
+                </div>
+
+            </div>
+            <button id="sustain_button" active=false>Sustain: OFF</button>
+
+        </main>
+
+    </body>
+</html>
